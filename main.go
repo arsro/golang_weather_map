@@ -34,6 +34,7 @@ func main() {
 
 	http.HandleFunc("/weather/", func(w http.ResponseWriter, r *http.Request) {
 		begin := time.Now()
+		// urlのパスで指定された都市名を取得する
 		city := strings.SplitN(r.URL.Path, "/", 3)[2]
 
 		temp, err := mw.temperature(city)
